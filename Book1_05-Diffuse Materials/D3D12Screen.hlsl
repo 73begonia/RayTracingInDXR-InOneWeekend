@@ -38,14 +38,12 @@ static const float exposure = 1.66;
 
 float4 PSMain(PSInput input) : SV_TARGET
 {
-	//float3 hdrColor = abs(g_texture.Sample(g_sampler, input.uv).rgb);
-
-	//float3 ldrColor = 1.0 - exp(-exposure * hdrColor);
-
-	//float4 outColor = float4(pow(ldrColor, 1 / 2.2), 1);
-
 	float3 hdrColor = abs(g_texture.Sample(g_sampler, input.uv).rgb);
-	float4 outColor = float4(hdrColor, 1);
+	float r = sqrt(hdrColor.x);
+	float g = sqrt(hdrColor.y);
+	float b = sqrt(hdrColor.z);
+
+	float4 outColor = float4(r, g, b, 1);
 
 	return outColor;
 }
