@@ -2,10 +2,14 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\x64\Debug\Book1_06-Metal.exe</FullPath>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_06-Metal\Book1_06-Metal.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_06-Metal\bin\cso\DXRShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>
