@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_02-A Simple Camera and Background\Book1_02-A Simple Camera and Background.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_02-A Simple Camera and Background\bin\cso\DXRShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

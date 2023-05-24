@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="basic_math.h" />
+    <ClInclude Include="basic_types.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="D3D12Screen.h" />
+    <ClInclude Include="d3dx12.h" />
+    <ClInclude Include="dxHelper.h" />
+    <ClInclude Include="DXRPathTracer.h" />
+    <ClInclude Include="Error.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="tiny_obj_loader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="D3D12Screen.cpp" />
+    <ClCompile Include="dxHelper.cpp" />
+    <ClCompile Include="DXRPathTracer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="DXRShader.hlsl" />
+  </ItemGroup>
+</Project>

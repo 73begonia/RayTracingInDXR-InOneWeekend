@@ -1,0 +1,3 @@
+﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
+  
+  Book1_05-Diffuse Materials.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\Book1_05-Diffuse Materials\Book1_05-Diffuse Materials.exe

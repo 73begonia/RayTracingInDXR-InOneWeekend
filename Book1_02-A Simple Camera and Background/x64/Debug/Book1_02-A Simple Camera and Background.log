@@ -1,0 +1,9 @@
+﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
+  
+  Camera.cpp
+  D3D12Screen.cpp
+  dxHelper.cpp
+  DXRPathTracer.cpp
+  main.cpp
+  Generating Code...
+  Book1_02-A Simple Camera and Background.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\Book1_02-A Simple Camera and Background\Book1_02-A Simple Camera and Background.exe
