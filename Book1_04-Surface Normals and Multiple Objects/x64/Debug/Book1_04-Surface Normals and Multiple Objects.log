@@ -1,2 +1,3 @@
-﻿  DXRPathTracer.cpp
+﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
+  
   Book1_04-Surface Normals and Multiple Objects.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\Book1_04-Surface Normals and Multiple Objects\Book1_04-Surface Normals and Multiple Objects.exe

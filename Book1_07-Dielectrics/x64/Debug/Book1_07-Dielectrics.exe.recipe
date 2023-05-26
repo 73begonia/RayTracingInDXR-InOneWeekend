@@ -2,10 +2,14 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\x64\Debug\Book1_07-Dielectrics.exe</FullPath>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_07-Dielectrics\Book1_07-Dielectrics.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\Graphic\WHProject\RayTracingInDXR\Book1_07-Dielectrics\bin\cso\DXRShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

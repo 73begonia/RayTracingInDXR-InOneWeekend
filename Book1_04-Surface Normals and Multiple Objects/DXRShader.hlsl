@@ -114,6 +114,11 @@ void closestHit(inout RayPayload payload, in BuiltInTriangleIntersectionAttribut
 	float3 hitNormal;
 	computeNormal(hitNormal, attribs);
 
+	if (dot(- WorldRayDirection(), hitNormal) < 0.f)
+	{
+		hitNormal = -hitNormal;
+	}
+
 	float3 color = 0.5 * float3(hitNormal.x + 1, hitNormal.y + 1, hitNormal.z + 1);
 
 	payload.color = float4(color, 1.0);
