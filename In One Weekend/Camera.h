@@ -31,7 +31,17 @@ public:
 	float getNearWindowWidth() const;
 	float getNearWindowHeight() const;
 	float getFarWindowWidth() const;
-	float getFarwindowHeight() const;
+	float getFarWindowHeight() const;
+
+	bool notifyChanged()
+	{
+		if (mViewDirty)
+		{
+			mViewDirty = false;
+			return true;
+		}
+		return false;
+	}
 
 	void setLens(float fovY, float aspect, float zn, float zf);
 
@@ -44,6 +54,11 @@ public:
 	XMFLOAT4X4 getView4x4f() const;
 	XMFLOAT4X4 getProj4x4f() const;
 
+	void setAperture(float aperture);
+	void setFocusDist(float focusDist);
+	float getAperture() const;
+	float getFocusDist() const;
+
 	void strafe(float ds);
 	void walk(float d);
 
@@ -55,10 +70,10 @@ public:
 	void update();
 
 private:
-	XMFLOAT3 mPosition = { 0.0f, 1.5f, -15.f };
+	XMFLOAT3 mPosition = { 13.0f, 2.0f, -3.f };
 	XMFLOAT3 mRight = { 1.0f, 0.0f, 0.0f };
 	XMFLOAT3 mUp = { 0.0f, 1.0f, 0.0f };
-	XMFLOAT3 mLook = { 0.0f, 0.0f, 1.0f };
+	XMFLOAT3 mLook = { 0.0f, 1.0f, 0.0f };
 
 	float mNearZ = 0.0f;
 	float mFarZ = 0.0f;
@@ -71,6 +86,9 @@ private:
 
 	XMFLOAT4X4 mView = IdentityMatrix4x4();
 	XMFLOAT4X4 mProj = IdentityMatrix4x4();
+
+	float mAperture = 0.1f;
+	float mFocusDist = 10.f;
 };
 
 #endif

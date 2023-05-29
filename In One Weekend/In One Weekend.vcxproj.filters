@@ -6,6 +6,7 @@
     <ClCompile Include="dxHelper.cpp" />
     <ClCompile Include="D3D12Screen.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="DXRPathTracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -18,5 +19,13 @@
     <ClInclude Include="basic_math.h" />
     <ClInclude Include="D3D12Screen.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="DXRPathTracer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Helpers.hlsli" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="DXRShader.hlsl" />
   </ItemGroup>
 </Project>

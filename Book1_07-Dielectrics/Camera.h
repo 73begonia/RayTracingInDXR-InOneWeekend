@@ -65,7 +65,7 @@ public:
 	void update();
 
 private:
-	XMFLOAT3 mPosition = { 0.0f, 0.0f, -1.f };
+	XMFLOAT3 mPosition = { -2.0f, 2.0f, -1.f };
 	XMFLOAT3 mRight = { 1.0f, 0.0f, 0.0f };
 	XMFLOAT3 mUp = { 0.0f, 1.0f, 0.0f };
 	XMFLOAT3 mLook = { 0.0f, 0.0f, 1.0f };

@@ -321,7 +321,7 @@ Mesh generateSphereMesh(const float3& center, float radius, uint numSegmentsInMe
 
 void SceneLoader::initializeGeometryFromMeshes(Scene* scene, const vector<Mesh*>& meshes)
 {
-	scene->clear();
+	//scene->clear();
 
 	uint numObjs = (uint)meshes.size();
 	vector<Vertex>& vtxArr = scene->vtxArr;
@@ -365,28 +365,153 @@ void SceneLoader::computeModelMatrices(Scene* scene)
 	}
 }
 
-Scene* SceneLoader::push_DiffuseSphere()
+Scene* SceneLoader::push_simpleSphere()
 {
 	Scene* scene = new Scene;
 	sceneArr.push_back(scene);
 
-	Mesh ground = generateRectangleMesh(float3(0.f), float3(7.f), FaceDir::up);
-	Mesh diffuseSphere = generateSphereMesh(float3(0.f, 1.1f, 0.f), 1.f);
+	Mesh ground = generateSphereMesh(float3(0, -100.5, 1), 100);
+	Mesh sphere1 = generateSphereMesh(float3(0, 0.001, 1), 0.5f);
+	Mesh sphere2 = generateSphereMesh(float3(-1.01, 0.0, 1), 0.5f);
+	Mesh sphere3 = generateSphereMesh(float3( 1.01, 0.0, 1), 0.5f);
+	Mesh sphere4 = generateSphereMesh(float3(-1.01, 0.0, 1), -0.48f);
 
-	initializeGeometryFromMeshes(scene, { &ground, &diffuseSphere });
+	initializeGeometryFromMeshes(scene, { &ground, &sphere1, &sphere2, &sphere3, &sphere4 });
 
 	vector<Material>& mtlArr = scene->mtlArr;
-	mtlArr.resize(2);
+	mtlArr.resize(5);
 
 	//ground
+	mtlArr[0].type = MaterialType::Lambertian;
+	mtlArr[0].albedo = float3(0.8, 0.8, 0.0);
+
+	//sphere1
+	mtlArr[1].type = MaterialType::Lambertian;
+	mtlArr[1].albedo = float3(0.1, 0.2, 0.5);
+
+	//sphere2
+	mtlArr[2].type = MaterialType::Dielectric;
+	mtlArr[2].refractionIndex = 1.5f;
+
+	//sphere3
+	mtlArr[3].type = MaterialType::Metal;
+	mtlArr[3].albedo = float3(0.8, 0.6, 0.2);
+	mtlArr[3].fuzz = 0.3f;
+
+	//sphere4
+	mtlArr[4].type = MaterialType::Dielectric;
+	mtlArr[4].refractionIndex = 1.5f;
 	
-	//diffuseSphere
 
 	for (uint i = 0; i < scene->objArr.size(); i++)
 	{
 		scene->objArr[i].materialIdx = i;
-		scene->objArr[i].translation = float3(0.f);
+		scene->objArr[i].translation = float3(0);
 	}
+
+	computeModelMatrices(scene);
+
+	return scene;
+}
+
+Scene* SceneLoader::push_RayTracingInOneWeekend()
+{
+	Scene* scene = new Scene;
+	sceneArr.push_back(scene);
+
+	Mesh ground = generateSphereMesh(float3(0, -1000, 0), 1000);
+	
+	vector<Mesh*> meshes;
+	meshes.push_back(&ground);
+
+	vector<Material>& mtlArr = scene->mtlArr;
+
+	//ground
+	Material groundMtl;
+	groundMtl.type = MaterialType::Lambertian;
+	groundMtl.albedo = 0.5f;
+	mtlArr.push_back(groundMtl);
+
+	for (int a = -11; a < 11; a++)
+	{
+		for (int b = -11; b < 11; b++)
+		{
+			float choose_mat = random_float();
+			float3 center(a + 0.9 * random_float(), 0.2, b + 0.9 * random_float());
+			if (length(center - float3(4, 0.2, 0)) > 0.9)
+			{
+				if (choose_mat < 0.8)
+				{
+					Mesh* smallSphere = new Mesh(generateSphereMesh(center, 0.2f));
+					meshes.push_back(smallSphere);
+					float3 albedo = random3();
+					Material smallSphereMtl;
+					smallSphereMtl.type = MaterialType::Lambertian;
+					smallSphereMtl.albedo = albedo;
+					mtlArr.push_back(smallSphereMtl);
+				}
+				else if (choose_mat < 0.95)
+				{
+					Mesh* smallSphere = new Mesh(generateSphereMesh(center, 0.2f));
+					meshes.push_back(smallSphere);
+					float3 albedo = random3(0.5, 1);
+					float fuzz = random_float(0, 0.5);
+					Material smallSphereMtl;
+					smallSphereMtl.type = MaterialType::Metal;
+					smallSphereMtl.albedo = albedo;
+					smallSphereMtl.fuzz = fuzz;
+					mtlArr.push_back(smallSphereMtl);
+				}
+				else
+				{
+					Mesh* smallSphere = new Mesh(generateSphereMesh(center, 0.2f));
+					meshes.push_back(smallSphere);
+					Material smallSphereMtl;
+					smallSphereMtl.type = MaterialType::Dielectric;
+					smallSphereMtl.refractionIndex = 1.5;
+					mtlArr.push_back(smallSphereMtl);
+				}
+			}
+		}
+	}
+
+	Mesh Lucy = loadMeshFromOBJFile("../__data/mesh/lucy.obj", true);
+	meshes.push_back(&Lucy);
+	Material lucyLambertianMtl;
+	lucyLambertianMtl.type = MaterialType::Lambertian;
+	lucyLambertianMtl.albedo = float3(0.4, 0.2, 0.1);
+	mtlArr.push_back(lucyLambertianMtl);
+
+	meshes.push_back(&Lucy);
+	Material lucyDielectricMtl;
+	lucyDielectricMtl.type = MaterialType::Dielectric;
+	lucyDielectricMtl.refractionIndex = 1.5;
+	mtlArr.push_back(lucyDielectricMtl);
+
+	meshes.push_back(&Lucy);
+	Material MetalMtl;
+	MetalMtl.type = MaterialType::Metal;
+	MetalMtl.albedo = float3(0.7, 0.6, 0.5);
+	MetalMtl.fuzz = 0.f;
+	mtlArr.push_back(MetalMtl);
+
+
+	initializeGeometryFromMeshes(scene, meshes);
+
+	for (uint i = 0; i < scene->objArr.size(); i++)
+	{
+		scene->objArr[i].materialIdx = i;
+		scene->objArr[i].translation = float3(0);
+	}
+
+	scene->objArr[scene->objArr.size() - 3].translation = float3(-4, 0, 0);
+	scene->objArr[scene->objArr.size() - 3].rotation = getRotationAsQuternion(float3(0, 1, 0), 180);
+
+	scene->objArr[scene->objArr.size() - 2].translation = float3(0, 0, 0);
+	scene->objArr[scene->objArr.size() - 2].rotation = getRotationAsQuternion(float3(0, 1, 0), 180);
+
+	scene->objArr[scene->objArr.size() - 1].translation = float3(4, 0, 0);
+	scene->objArr[scene->objArr.size() - 1].rotation = getRotationAsQuternion(float3(0, 1, 0), 180);
 
 	computeModelMatrices(scene);
 

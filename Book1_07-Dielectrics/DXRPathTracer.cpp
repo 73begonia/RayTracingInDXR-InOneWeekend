@@ -119,7 +119,7 @@ void DXRPathTracer::onSizeChanged(uint width, uint height)
 	mTracerOutW = width;
 	mTracerOutH = height;
 
-	mCamera.setLens(0.25f * XM_PI, float(mTracerOutW) / mTracerOutH, 1.0f, 1000.0f);
+	mCamera.setLens(0.5f * XM_PI, float(mTracerOutW) / mTracerOutH, 1.0f, 1000.0f);
 
 	if (mTracerOutBuffer != nullptr)
 		mTracerOutBuffer.Reset();
@@ -320,7 +320,8 @@ void DXRPathTracer::buildRaytracingPipeline()
 
 void DXRPathTracer::initializeApplication()
 {
-	mCamera.setLens(0.25f * XM_PI, float(mTracerOutW) / mTracerOutH, 1.0f, 1000.0f);
+	mCamera.setLens(0.5f * XM_PI, float(mTracerOutW) / mTracerOutH, 1.0f, 1000.0f);
+	mCamera.lookAt(mCamera.getPosition(), mCamera.getLook(), mCamera.getUp());
 
 	mGlobalConstants.backgroundLight = float3(0.8f, 0.1f, 0.5f);
 	mGlobalConstants.maxPathLength = 48;

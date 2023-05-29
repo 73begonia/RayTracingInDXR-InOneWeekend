@@ -7,7 +7,6 @@ Camera::Camera()
 
 Camera::~Camera()
 {
-
 }
 
 XMVECTOR Camera::getPosition() const
@@ -103,7 +102,7 @@ float Camera::getFarWindowWidth() const
 	return mAspect * mFarWindowHeight;
 }
 
-float Camera::getFarwindowHeight() const
+float Camera::getFarWindowHeight() const
 {
 	return mFarWindowHeight;
 }
@@ -149,7 +148,6 @@ void Camera::lookAt(const XMFLOAT3& pos, const XMFLOAT3& target, const XMFLOAT3&
 
 XMMATRIX Camera::getView() const
 {
-	assert(!mViewDirty);
 	return XMLoadFloat4x4(&mView);
 }
 
@@ -167,6 +165,28 @@ XMFLOAT4X4 Camera::getView4x4f() const
 XMFLOAT4X4 Camera::getProj4x4f() const
 {
 	return mProj;
+}
+
+void Camera::setAperture(float aperture)
+{
+	mAperture = _clamp(aperture, 0.0001f, 2.f);
+	mViewDirty = true;
+}
+
+void Camera::setFocusDist(float focusDist)
+{
+	mFocusDist = _clamp(focusDist, 1.f, 25.f);
+	mViewDirty = true;
+}
+
+float Camera::getAperture() const
+{
+	return mAperture;
+}
+
+float Camera::getFocusDist() const
+{
+	return mFocusDist;
 }
 
 void Camera::strafe(float d)
@@ -222,6 +242,14 @@ void Camera::executeKeyboard()
 		strafe(-1.f);
 	else if (GetAsyncKeyState('D') & 0x8000)
 		strafe(1.f);
+	else if (GetAsyncKeyState(VK_UP) & 0x8000)
+		setAperture(mAperture + 0.01f);
+	else if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+		setAperture(mAperture - 0.01f);
+	else if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		setFocusDist(mFocusDist - 0.1f);
+	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+		setFocusDist(mFocusDist + 0.1f);
 }
 
 void Camera::updateViewMatrix()
@@ -265,8 +293,6 @@ void Camera::updateViewMatrix()
 		mView(1, 3) = 0.0f;
 		mView(2, 3) = 0.0f;
 		mView(3, 3) = 1.0f;
-
-		mViewDirty = false;
 	}
 }
 
