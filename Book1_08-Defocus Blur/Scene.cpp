@@ -483,7 +483,7 @@ Scene* SceneLoader::push_RayTracingInOneWeekend()
 					Material smallSphereMtl;
 					smallSphereMtl.type = MaterialType::Metal;
 					smallSphereMtl.albedo = albedo;
-					smallSphereMtl.fuzz = 0.1;
+					smallSphereMtl.fuzz = 0.1f;
 					mtlArr.push_back(smallSphereMtl);
 				}
 				else

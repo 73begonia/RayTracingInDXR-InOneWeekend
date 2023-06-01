@@ -1,3 +1,10 @@
-﻿  Scene.cpp
-E:\Graphic\WHProject\RayTracingInDXR\Book1_08-Defocus Blur\Scene.cpp(486,31): warning C4305: '=': truncation from 'double' to 'float'
+﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
+  
+  Camera.cpp
+  D3D12Screen.cpp
+  dxHelper.cpp
+  DXRPathTracer.cpp
+  main.cpp
+  Scene.cpp
+  Generating Code...
   Book1_08-Defocus Blur.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\Book1_08-Defocus Blur\Book1_08-Defocus Blur.exe

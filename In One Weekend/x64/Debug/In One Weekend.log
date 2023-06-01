@@ -1,3 +1,10 @@
 ﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
   
+  Camera.cpp
+  D3D12Screen.cpp
+  dxHelper.cpp
+  DXRPathTracer.cpp
+  main.cpp
+  Scene.cpp
+  Generating Code...
   In One Weekend.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\In One Weekend\In One Weekend.exe
