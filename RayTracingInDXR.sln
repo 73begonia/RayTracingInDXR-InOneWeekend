@@ -17,10 +17,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Book1_08-Defocus Blur", "Bo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "In One Weekend", "In One Weekend\In One Weekend.vcxproj", "{27A98223-8F4A-4080-8DA3-14F2D12B745E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Next Week", "The Next Week\The Next Week.vcxproj", "{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The Rest of Your Life", "The Rest of Your Life\The Rest of Your Life.vcxproj", "{11674868-6375-4E66-B2F7-ECDE2C12946C}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Book1_01-Output an Image", "Book1_01-Output an Image\Book1_01-Output an Image.vcxproj", "{DD130161-F2BB-49CD-AA47-9B1319D93932}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Book1_02-A Simple Camera and Background", "Book1_02-A Simple Camera and Background\Book1_02-A Simple Camera and Background.vcxproj", "{00DF9B12-05A2-49C7-8C97-3E93C4772536}"
@@ -89,22 +85,6 @@ Global
 		{27A98223-8F4A-4080-8DA3-14F2D12B745E}.Release|x64.Build.0 = Release|x64
 		{27A98223-8F4A-4080-8DA3-14F2D12B745E}.Release|x86.ActiveCfg = Release|Win32
 		{27A98223-8F4A-4080-8DA3-14F2D12B745E}.Release|x86.Build.0 = Release|Win32
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Debug|x64.ActiveCfg = Debug|x64
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Debug|x64.Build.0 = Debug|x64
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Debug|x86.ActiveCfg = Debug|Win32
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Debug|x86.Build.0 = Debug|Win32
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Release|x64.ActiveCfg = Release|x64
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Release|x64.Build.0 = Release|x64
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Release|x86.ActiveCfg = Release|Win32
-		{A383EF4B-355D-4C1A-9E5D-123B98B2DFC8}.Release|x86.Build.0 = Release|Win32
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Debug|x64.ActiveCfg = Debug|x64
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Debug|x64.Build.0 = Debug|x64
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Debug|x86.ActiveCfg = Debug|Win32
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Debug|x86.Build.0 = Debug|Win32
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Release|x64.ActiveCfg = Release|x64
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Release|x64.Build.0 = Release|x64
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Release|x86.ActiveCfg = Release|Win32
-		{11674868-6375-4E66-B2F7-ECDE2C12946C}.Release|x86.Build.0 = Release|Win32
 		{DD130161-F2BB-49CD-AA47-9B1319D93932}.Debug|x64.ActiveCfg = Debug|x64
 		{DD130161-F2BB-49CD-AA47-9B1319D93932}.Debug|x64.Build.0 = Debug|x64
 		{DD130161-F2BB-49CD-AA47-9B1319D93932}.Debug|x86.ActiveCfg = Debug|Win32

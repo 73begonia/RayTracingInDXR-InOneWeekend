@@ -469,7 +469,7 @@ Scene* SceneLoader::push_RayTracingInOneWeekend()
 				{
 					Mesh* smallSphere = new Mesh(generateSphereMesh(center, 0.2f));
 					meshes.push_back(smallSphere);
-					float3 albedo = random3();
+					float3 albedo = float3(random_float() * random_float(), random_float() * random_float(), random_float() * random_float());
 					Material smallSphereMtl;
 					smallSphereMtl.type = MaterialType::Lambertian;
 					smallSphereMtl.albedo = albedo;
@@ -480,11 +480,10 @@ Scene* SceneLoader::push_RayTracingInOneWeekend()
 					Mesh* smallSphere = new Mesh(generateSphereMesh(center, 0.2f));
 					meshes.push_back(smallSphere);
 					float3 albedo = random3(0.5, 1);
-					float fuzz = random_float(0, 0.5);
 					Material smallSphereMtl;
 					smallSphereMtl.type = MaterialType::Metal;
 					smallSphereMtl.albedo = albedo;
-					smallSphereMtl.fuzz = fuzz;
+					smallSphereMtl.fuzz = 0.1;
 					mtlArr.push_back(smallSphereMtl);
 				}
 				else

@@ -1,0 +1,8 @@
+﻿FXC : warning : no output provided for debug - embedding PDB in shader container.  Use -Qembed_debug to silence this warning.
+  
+  D3D12Screen.cpp
+  dxHelper.cpp
+  DXRPathTracer.cpp
+  main.cpp
+  Generating Code...
+  Book1_01-Output an Image.vcxproj -> E:\Graphic\WHProject\RayTracingInDXR\Book1_01-Output an Image\Book1_01-Output an Image.exe
